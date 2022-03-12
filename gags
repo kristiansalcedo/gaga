@@ -1,0 +1,66 @@
+<?php
+$file = fopen('file.txt', 'a+');
+if (isset($_POST['butt'])) {
+    $id = $_POST['idnum'];
+    $name = $_POST['name'];
+    $course = $_POST['crs'];
+
+    fwrite($file, "\n" . $id . "*");
+    fwrite($file, $name . "*");
+    $flag = fwrite($file, $course);
+    if ($flag) {
+        header('location: ./main.php');
+        fclose($file);
+    } else {
+        fclose($file);
+}
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<body style="background-color:White;">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <div class="box"
+	
+	style="background-color: #ffff00; 
+	 border: solid black;
+	align:center;
+	width:200px;
+	height:200px;
+padding: 150px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  margin-right: 1000px;
+  margin-left: 700px; 
+font-size: 15px;">
+        <form action="" method="POST">
+		<h1>CRUD PHP</h1>
+            <label for="">I.D</label><br>
+			
+            <input type="text" style=margin-top: 50px;"border-radius:20px;font-size:20px;"name="idnum"><br>
+			
+            <label for="">Name</label><br>
+			
+            <input type="text" style=margin-top: 50px;"border-radius:20px;font-size:20px;"name="name"><br>
+			
+            <label for="">Course</label><br>
+			
+            <input type="text" style=margin-top: 50px; "border-radius:20px;font-size:20px;" name="crs"><br>
+			
+            <button type="submit " name="butt"style=margin-top: 100px;"margin-left: 100px; margin-top:10px;border-radius:25px;padding:10px;">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
+ga
